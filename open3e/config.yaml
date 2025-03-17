@@ -14,13 +14,10 @@ host_network: true
 image: "fleckem/ha-addon-open3e-{arch}"
 init: false
 options: {
-  "main": {
+  "configurations": {
     "can": "can0",
     "Listen_Topic": "open3e/cmnd"
-  },
-  "mqtt": {
     "Server_Topic": "open3e",
-    "MQTT_UserPassword": "user:password",
     "MQTT_FormatString": "{device}_{ecuAddr:03X}_{didNumber}_{didName}",
     "MQTT_ClientID": "open3e"
   }
@@ -28,13 +25,10 @@ options: {
 privileged:
   - NET_ADMIN
 schema: {
-  "main": {
+  "configurations": {
       "can": "str",
       "Listen_Topic": "str"
-  },
-  "mqtt": {
       "Server_Topic": "str",
-      "MQTT_UserPassword": "str",
       "MQTT_FormatString": "str",
       "MQTT_ClientID": "str"
   }

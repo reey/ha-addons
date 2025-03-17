@@ -38,4 +38,4 @@ fi
 
 bashio::log.info "Starting Open3e... open3e --can $CAN --mqtt $MQTT_HOST:$TOPIC --mqttuser $MQTT_USER:$MQTT_PASSWORD --mqttformatstring $FORMATSTRING --mqttclientid $CLIENTID --listen $LISTENTOPIC --config /data/devices.json"
 cd /data
-open3e --can $CAN --mqtt $MQTT_HOST:$TOPIC --mqttuser $MQTT_USER:$MQTT_PASSWORD --mqttformatstring $FORMATSTRING --mqttclientid $CLIENTID --listen $LISTENTOPIC --config /data/devices.json
+open3e --can $CAN --mqtt $MQTT_HOST:1883:$TOPIC --mqttuser $MQTT_USER:$MQTT_PASSWORD --mqttformatstring $FORMATSTRING --mqttclientid $CLIENTID --listen $LISTENTOPIC --config /data/devices.json

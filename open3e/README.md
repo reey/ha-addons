@@ -9,7 +9,7 @@ It requires the Mosquitto MQTT broker to be installed in Home Assistant. It will
 
 On the configuration the username and passwort for a user in your Home Assistant installation must be set otherwise it will fail connecting to MQTT. 
 
-![Configuration](https://raw.githubusercontent.com/flecke-m/ha-addons/open3e/refs/heads/main/images/homeassistant-configuration.jpg)
+![Configuration](https://raw.githubusercontent.com/flecke-m/ha-addons/refs/heads/main/open3e/images/homeassistant-configuration.jpg)
 
 Options:
 
@@ -23,12 +23,12 @@ MQTT_ClientID: -> ClientID how the Add-On shows up in the MQTT Broker
 
 Startup of the Add-On, where initially the command open3e_depictsystem runs:
 
-![Startup](https://raw.githubusercontent.com/flecke-m/ha-addons/open3e/refs/heads/main/images/homeassistant-startup.jpg)
+![Startup](https://raw.githubusercontent.com/flecke-m/ha-addons/refs/heads/main/open3e/images/homeassistant-startup.jpg)
 
 
 Using the Add-On for Demo purposes with the MQTT-Explorer and sending a command to the Listen_Topic Endpoint and seeing the reply on the open3e Topic:
 
-![Running](https://raw.githubusercontent.com/flecke-m/ha-addons/open3e/refs/heads/main/images/homeassistant-running.jpg)
+![Running](https://raw.githubusercontent.com/flecke-m/ha-addons/refs/heads/main/open3e/images/homeassistant-running.jpg)
 
 
 

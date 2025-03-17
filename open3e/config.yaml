@@ -10,7 +10,7 @@ arch:
   - aarch64
 hassio_api: true
 host_network: true
-image: "ghcr.io/flecke-m/open3e-ha-addon-{arch}"
+image: "fleckem/open3e-ha-addon-{arch}"
 init: false
 map:
   - addon_config:rw

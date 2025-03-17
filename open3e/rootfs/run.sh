@@ -8,7 +8,7 @@ CAN=$(bashio::config 'main.can')
 bashio::log.info "Can Interface:  $CAN"
 LISTENTOPIC=$(bashio::config 'main.Listen_Topic')
 bashio::log.info "Listen to topic:  $LISTENTOPIC"
-SERVER=$(bashio::config 'mqtt.Server_Topic')
+TOPIC=$(bashio::config 'mqtt.Server_Topic')
 bashio::log.info "MQTT Server and Publish Topic:  $SERVER"
 USERPWD=$(bashio::config 'mqtt.MQTT_UserPassword')
 bashio::log.info "MQTT Username/Password:  $USERPWD"
@@ -16,6 +16,10 @@ FORMATSTRING=$(bashio::config 'mqtt.MQTT_FormatString')
 bashio::log.info "Format String:  $FORMATSTRING"
 CLIENTID=$(bashio::config 'mqtt.MQTT_ClientID')
 bashio::log.info "ClientID:  $CLIENTID"    
+
+MQTT_HOST=$(bashio::services mqtt "host")
+MQTT_USER=$(bashio::services mqtt "username")
+MQTT_PASSWORD=$(bashio::services mqtt "password")
 
 bashio::log.info "Preparing to start...checking can interface"
 
@@ -30,6 +34,6 @@ if ! test -f /data/devices.json; then
    open3e_depictSystem -c $CAN
 fi
 
-bashio::log.info "Starting Open3e... open3e --can $CAN --mqtt $SERVER --mqttuser !redacted! --mqttformatstring $FORMATSTRING --mqttclientid $CLIENTID --listen $LISTENTOPIC --config /data/devices.json"
+bashio::log.info "Starting Open3e... open3e --can $CAN --mqtt $SERVER --mqttuser $MQTT_USER:$MQTT_PASSWORD --mqttformatstring $FORMATSTRING --mqttclientid $CLIENTID --listen $LISTENTOPIC --config /data/devices.json"
 cd /data
-open3e --can $CAN --mqtt $SERVER --mqttuser $USERPWD --mqttformatstring $FORMATSTRING --mqttclientid $CLIENTID --listen $LISTENTOPIC --config /data/devices.json
+open3e --can $CAN --mqtt $MQTT_HOST:$TOPIC --mqttuser $MQTT_USER:$MQTT_PASSWORD --mqttformatstring $FORMATSTRING --mqttclientid $CLIENTID --listen $LISTENTOPIC --config /data/devices.json

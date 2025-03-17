@@ -21,7 +21,7 @@ options: {
     "Listen_Topic": "open3e/cmnd"
   },
   "mqtt": {
-    "Server_Topic": ":open3e",
+    "Server_Topic": "open3e",
     "MQTT_UserPassword": "user:password",
     "MQTT_FormatString": "{device}_{ecuAddr:03X}_{didNumber}_{didName}",
     "MQTT_ClientID": "open3e"

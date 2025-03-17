@@ -1,0 +1,44 @@
+# This is a basic workflow to help you get started with Actions
+
+# Name of the workflow
+name: Build HA Addon
+
+# The name of the run, using the GitHub actor's name
+run-name: ${{ github.actor }} is trying actions
+
+# Triggers the workflow on manual dispatch
+on: workflow_dispatch
+
+# Defines the steps that will run in this workflow
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build ${{ matrix.arch }} open3e add-on
+    strategy:
+      matrix:
+        arch: ["aarch64", "amd64", "armhf"]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4.2.2
+
+      - name: Get information
+        id: info
+        uses: home-assistant/actions/helpers/info@master
+        with:
+          path: ./${{ matrix.addon }}
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v3.4.0
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build Open3e add-on
+        uses: home-assistant/builder@2025.02.0
+        with:
+          args: |
+            --${{ matrix.arch }} \
+            --target ${{ matrix.addon }} \
+            --docker-hub fleckem
+            --test

@@ -13,8 +13,6 @@ hassio_api: true
 host_network: true
 image: "fleckem/ha-addon-open3e-{arch}"
 init: false
-map:
-  - addon_config:rw
 options: {
   "main": {
     "can": "can0",

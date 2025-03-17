@@ -40,5 +40,4 @@ jobs:
             --${{ matrix.arch }} \
             --target /data/${{ matrix.addon }} \
             --image "ha-addon-open3e-${{ matrix.arch }}" \
-            --docker-hub fleckem \
-            --test
+            --docker-hub fleckem

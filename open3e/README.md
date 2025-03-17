@@ -9,7 +9,7 @@ It requires the Mosquitto MQTT broker to be installed in Home Assistant. It will
 
 On the configuration only the Topics need to be adjusted if others than the default ones are going to be used:
 
-![Configuration](https://raw.githubusercontent.com/flecke-m/ha-addons/refs/heads/main/open3e/images/homeassistant-configuration.jpg)
+![Configuration](https://raw.githubusercontent.com/flecke-m/ha-addons/refs/heads/main/open3e/images/homeassistant-configuration1.jpg)
 
 Options:
 

@@ -3,9 +3,6 @@
 # Name of the workflow
 name: Build HA Addon
 
-# The name of the run, using the GitHub actor's name
-run-name: ${{ github.actor }} is trying actions
-
 # Triggers the workflow on manual dispatch
 on: workflow_dispatch
 
@@ -39,6 +36,6 @@ jobs:
         with:
           args: |
             --${{ matrix.arch }} \
-            --target ${{ matrix.addon }} \
+            --target /data/${{ matrix.addon }} \
             --docker-hub fleckem
             --test

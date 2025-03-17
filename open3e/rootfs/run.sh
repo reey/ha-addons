@@ -9,7 +9,7 @@ bashio::log.info "Can Interface:  $CAN"
 LISTENTOPIC=$(bashio::config 'main.Listen_Topic')
 bashio::log.info "Listen to topic:  $LISTENTOPIC"
 TOPIC=$(bashio::config 'mqtt.Server_Topic')
-bashio::log.info "MQTT Server and Publish Topic:  $SERVER"
+bashio::log.info "MQTT Server and Publish Topic:  $TOPIC"
 USERPWD=$(bashio::config 'mqtt.MQTT_UserPassword')
 bashio::log.info "MQTT Username/Password:  $USERPWD"
 FORMATSTRING=$(bashio::config 'mqtt.MQTT_FormatString')
@@ -20,6 +20,8 @@ bashio::log.info "ClientID:  $CLIENTID"
 MQTT_HOST=$(bashio::services mqtt "host")
 MQTT_USER=$(bashio::services mqtt "username")
 MQTT_PASSWORD=$(bashio::services mqtt "password")
+
+bashio::log.info "MQTT data from API:  $MQTT_HOST    $MQTT_USER       $MQTT_PASSWORD"
 
 bashio::log.info "Preparing to start...checking can interface"
 

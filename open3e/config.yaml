@@ -1,0 +1,45 @@
+---
+version: 0.5.0
+slug: open3e
+name: Open3e
+description: Connect to E3 Controls through CAN
+url: https://github.com/flecke-m/tree/dev/open3e-ha-addon
+arch:
+  - amd64
+  - armhf
+  - aarch64
+hassio_api: true
+host_network: true
+image: "ghcr.io/flecke-m/open3e-ha-addon-{arch}"
+init: false
+map:
+  - addon_config:rw
+options: {
+  "main": {
+    "can": "can0",
+    "Listen_Topic": "open3e/cmnd"
+  },
+  "mqtt": {
+    "Server_Topic": "127.0.0.1:1883:open3e",
+    "MQTT_UserPassword": "user:password",
+    "MQTT_FormatString": "{device}_{ecuAddr:03X}_{didNumber}_{didName}",
+    "MQTT_ClientID": "open3e"
+  }
+}
+privileged:
+  - NET_ADMIN
+schema: {
+  "main": {
+      "can": "str",
+      "Listen_Topic": "str"
+  },
+  "mqtt": {
+      "Server_Topic": "str",
+      "MQTT_UserPassword": "str",
+      "MQTT_FormatString": "str",
+      "MQTT_ClientID": "str"
+  }
+}
+services:
+  - mqtt:need
+startup: services

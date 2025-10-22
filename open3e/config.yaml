@@ -1,5 +1,5 @@
 ---
-version: 0.5.9
+version: 0.5.10
 slug: open3e
 name: Open3e
 description: Connect to E3 Controls through CAN
@@ -11,7 +11,6 @@ arch:
   - aarch64
 hassio_api: true
 host_network: true
-image: "fleckem/ha-addon-open3e-{arch}"
 init: false
 options: {
   "configurations": {

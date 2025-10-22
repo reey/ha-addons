@@ -21,6 +21,16 @@ MQTT_PASSWORD=$(bashio::services mqtt "password")
 
 bashio::log.info "MQTT data from API:  Host: $MQTT_HOST  User: $MQTT_USER"
 
+if [ -d "/config/open3e" ]; then
+   bashio::log.info "Using open3e from addon config folder"
+   cd /config/open3e
+   pip install --editable .[dev]
+else
+   # get git sha from local git repo
+   GIT_SHA=$(git --git-dir /data/open3e/.git rev-parse HEAD)
+   bashio::log.info "Using built-in open3e version from image: $GIT_SHA"
+fi
+
 bashio::log.info "Preparing to start...checking can interface"
 
 ip link set down $CAN && ip link set $CAN type can bitrate 250000 && ip link set up $CAN

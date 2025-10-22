@@ -1,5 +1,5 @@
 ---
-version: 0.5.10
+version: 0.5.11
 slug: open3e
 name: Open3e
 description: Connect to E3 Controls through CAN

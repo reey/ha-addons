@@ -25,6 +25,8 @@ if [ -d "/config/open3e" ]; then
    bashio::log.info "Using open3e from addon config folder"
    cd /config/open3e
    pip install --editable .[dev]
+   open3e --version
+   open3e --help
 else
    bashio::log.info "Using built-in open3e version"
 fi

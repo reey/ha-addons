@@ -33,6 +33,8 @@ schema: {
       "MQTT_ClientID": "str"
   }
 }
+map:
+  - "addon_config:rw"
 services:
   - mqtt:need
 startup: services

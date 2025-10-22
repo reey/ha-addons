@@ -26,9 +26,7 @@ if [ -d "/config/open3e" ]; then
    cd /config/open3e
    pip install --editable .[dev]
 else
-   # get git sha from local git repo
-   GIT_SHA=$(git --git-dir /data/open3e/.git rev-parse HEAD)
-   bashio::log.info "Using built-in open3e version from image: $GIT_SHA"
+   bashio::log.info "Using built-in open3e version"
 fi
 
 bashio::log.info "Preparing to start...checking can interface"
